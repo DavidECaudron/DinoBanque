@@ -8,22 +8,28 @@ namespace Scripts
     {
         #region Public
 
-        [SerializeField]
-        ResourcesManager _resourcesManager;
-
         #endregion
 
         #region Private
+
+        private ResourcesManager _resourcesManager;
+
         #endregion
 
         #region Unity
+
+        private void Awake()
+        {
+            _resourcesManager = GetComponentInParent<ResourcesManager>();
+        }
+
         #endregion
 
         #region Methods
 
         public void EggClick()
         {
-            int random = Random.Range(0, 10);
+            int random = Random.Range(1, 10);
 
             _resourcesManager.AddInStock("Egg", random);
 

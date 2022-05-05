@@ -55,11 +55,11 @@ namespace Scripts
         {
             while (true)
             {
-                float randomSpawn = Random.Range(60.0f, 300.0f);
+                float randomSpawn = Random.Range(20.0f, 20.0f);
                 yield return new WaitForSeconds(randomSpawn);
 
-                float randX = Random.Range(25.0f, 600.0f);
-                float randY = Random.Range(25.0f, 500.0f);
+                float randX = Random.Range(25.0f, 300.0f);
+                float randY = Random.Range(25.0f, 250.0f);
 
                 GameObject temp = Instantiate(_eggSprite, new Vector3(randX, randY, 0.0f), Quaternion.identity, transform);
                 temp.GetComponent<Image>().color = Color.white;
