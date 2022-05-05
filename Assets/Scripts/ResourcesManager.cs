@@ -26,10 +26,12 @@ namespace Scripts
             _resourcesStock.Add("Meat", 0);
             _resourcesStock.Add("Wood", 0);
             _resourcesStock.Add("Rock", 0);
+            _resourcesStock.Add("Egg", 0);
 
             RefreshCounter("Meat");
             RefreshCounter("Wood");
             RefreshCounter("Rock");
+            RefreshCounter("Egg");
         }
 
         #endregion
