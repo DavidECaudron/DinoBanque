@@ -9,16 +9,17 @@ namespace Scripts
         #region Public
 
         [SerializeField]
-        private ResourcesManager _resourcesManager;
+        protected ResourcesManager _resourcesManager;
 
         [SerializeField]
-        private Text _buildingLabel;
+        protected Text _buildingLabel;
 
         #endregion
 
         #region Private
 
-        private int _buildingLevel;
+        protected int _buildingLevel;
+        protected int _buildingPrice;
 
         #endregion
 
@@ -33,7 +34,7 @@ namespace Scripts
 
         #region Methods
 
-        public void HouseUpgrade()
+        public virtual void BuildingUpgrade()
         {
             _buildingLevel += 1;
 
@@ -48,16 +49,16 @@ namespace Scripts
             }
         }
 
-        public void MeatGeneration()
+        protected virtual void MeatGeneration()
         {
-            _resourcesManager.AddMeatInStock(_buildingLevel);
+            //_resourcesManager.AddMeatInStock(_buildingLevel);
         }
 
         #endregion
 
         #region Utils
 
-        IEnumerator MeatGenerationCoroutine()
+        protected IEnumerator MeatGenerationCoroutine()
         {
             while (true)
             {

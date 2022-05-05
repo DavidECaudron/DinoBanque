@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,14 +8,12 @@ namespace Scripts
     {
         #region Public
 
-        [SerializeField]
-        private Text _meatCounter;
-
         #endregion
 
         #region Private
 
-        private int _meatStock;
+        private Dictionary<string, int> _resourcesStock = new Dictionary<string, int>();
+        private CounterManager _counterManager;
 
         #endregion
 
@@ -22,31 +21,38 @@ namespace Scripts
 
         private void Awake()
         {
-            _meatStock = 0;
-            RefreshMeatCounter();
+            _counterManager = GetComponentInChildren<CounterManager>();
+
+            _resourcesStock.Add("Meat", 0);
+            _resourcesStock.Add("Wood", 0);
+            _resourcesStock.Add("Rock", 0);
+
+            RefreshCounter("Meat");
+            RefreshCounter("Wood");
+            RefreshCounter("Rock");
         }
 
         #endregion
 
         #region Methods
 
-        private void RefreshMeatCounter()
+        private void RefreshCounter(string resource)
         {
-            _meatCounter.text = _meatStock.ToString();
+            _counterManager.FindCounter(resource);
         }
 
-        public void AddMeatInStock(int amount)
+        public void AddInStock(string resource, int amount)
         {
-            _meatStock += amount;
-            RefreshMeatCounter();
+            _resourcesStock[resource] += amount;
+            RefreshCounter(resource);
         }
 
-        public void RemoveMeatInStock(int amount)
+        public void RemoveInStock(string resource, int amount)
         {
-            if (_meatStock >= amount)
+            if (_resourcesStock[resource] >= amount)
             {
-                _meatStock -= amount;
-                RefreshMeatCounter();
+                _resourcesStock[resource] -= amount;
+                RefreshCounter(resource);
             }
         }
 
@@ -58,10 +64,10 @@ namespace Scripts
 
         #region Getter & Setters
 
-        public int MeatStock
+        public Dictionary<string, int> ResourcesStock
         {
-            get { return _meatStock; }
-            private set { _meatStock = value; }
+            get { return _resourcesStock; }
+            private set { _resourcesStock = value; }
         }
 
         #endregion

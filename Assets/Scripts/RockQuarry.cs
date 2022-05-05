@@ -1,6 +1,6 @@
 namespace Scripts
 {
-    public class House : Buildings
+    public class RockQuarry : Buildings
     {
         #region Public
 
@@ -34,7 +34,7 @@ namespace Scripts
         protected override void MeatGeneration()
         {
             base.MeatGeneration();
-            _resourcesManager.AddInStock("Meat", _buildingLevel * 2);
+            _resourcesManager.AddInStock("Rock", _buildingLevel * 2);
         }
 
         #endregion

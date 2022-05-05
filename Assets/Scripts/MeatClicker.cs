@@ -8,6 +8,8 @@ namespace Scripts
 
         [SerializeField]
         private ResourcesManager _resourcesManager;
+        [SerializeField]
+        private SpriteManager _spriteManager;
 
         #endregion
 
@@ -15,6 +17,7 @@ namespace Scripts
 
         private int _clickValue;
         private int _upgradePrice;
+        private Transform _mouseColliderTransform;
 
         #endregion
 
@@ -24,6 +27,13 @@ namespace Scripts
         {
             _clickValue = 1;
             _upgradePrice = 10;
+
+            _mouseColliderTransform = GetComponentInChildren<Collider2D>().gameObject.transform;
+        }
+
+        private void Update()
+        {
+            _mouseColliderTransform.position = Input.mousePosition;
         }
 
         #endregion
@@ -32,15 +42,16 @@ namespace Scripts
 
         public void Click()
         {
-            _resourcesManager.AddMeatInStock(_clickValue);
+            _resourcesManager.AddInStock("Meat", _clickValue);
+            _spriteManager.SpriteInstantiate();
         }
 
         public void ClickUpgrade()
         {
-            if (_resourcesManager.MeatStock >= _upgradePrice)
+            if (_resourcesManager.ResourcesStock["Meat"] >= _upgradePrice)
             {
                 _clickValue += 1;
-                _resourcesManager.RemoveMeatInStock(_upgradePrice);
+                _resourcesManager.RemoveInStock("Meat", _upgradePrice);
                 _upgradePrice *= 2;
             }
         }

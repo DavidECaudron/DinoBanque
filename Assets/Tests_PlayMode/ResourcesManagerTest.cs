@@ -20,26 +20,26 @@ public class ResourcesManagerTest
     [Test]
     public void MeatStockStartsAtZero()
     {
-        Assert.AreEqual(0, _resourcesManager.MeatStock);
+        Assert.AreEqual(0, _resourcesManager.ResourcesStock["Meat"]);
     }
 
     [Test]
     public void MeatStockAddMeat()
     {
-        int temp = _resourcesManager.MeatStock;
+        int temp = _resourcesManager.ResourcesStock["Meat"];
 
-        _resourcesManager.AddMeatInStock(10);
+        _resourcesManager.AddInStock("Meat", 10);
 
-        Assert.AreEqual(temp + 10, _resourcesManager.MeatStock);
+        Assert.AreEqual(temp + 10, _resourcesManager.ResourcesStock["Meat"]);
     }
 
     [Test]
     public void MeatStockRemoveMeat()
     {
-        int temp = _resourcesManager.MeatStock;
+        int temp = _resourcesManager.ResourcesStock["Meat"];
 
-        _resourcesManager.RemoveMeatInStock(10);
+        _resourcesManager.RemoveInStock("Meat", 10);
 
-        Assert.AreEqual(temp, _resourcesManager.MeatStock);
+        Assert.AreEqual(temp, _resourcesManager.ResourcesStock["Meat"]);
     }
 }
