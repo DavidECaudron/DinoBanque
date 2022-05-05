@@ -27,7 +27,11 @@ namespace Scripts
 
             _resourcesManager.AddInStock("Egg", random);
 
-            Destroy(gameObject);
+            if (gameObject != null)
+            {
+                Destroy(gameObject);
+            }
+            
         }
 
         #endregion

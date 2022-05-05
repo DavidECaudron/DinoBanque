@@ -15,6 +15,7 @@ namespace Scripts
         private void Awake()
         {
             _buildingPrice = 100;
+            _buildingPriceText.text = _buildingPrice.ToString() + " Meat";
         }
 
         #endregion
@@ -27,7 +28,9 @@ namespace Scripts
             {
                 base.BuildingUpgrade();
                 _resourcesManager.RemoveInStock("Meat", _buildingPrice);
+
                 _buildingPrice *= 2;
+                _buildingPriceText.text = _buildingPrice.ToString() + " Meat";
             }
         }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scripts
 {
@@ -10,6 +11,8 @@ namespace Scripts
         private ResourcesManager _resourcesManager;
         [SerializeField]
         private SpriteManager _spriteManager;
+        [SerializeField]
+        private Text _upgradePriceText;
 
         #endregion
 
@@ -27,6 +30,7 @@ namespace Scripts
         {
             _clickValue = 1;
             _upgradePrice = 10;
+            _upgradePriceText.text = _upgradePrice.ToString() + " Meat";
 
             _mouseColliderTransform = GetComponentInChildren<Collider2D>().gameObject.transform;
         }
@@ -52,7 +56,9 @@ namespace Scripts
             {
                 _clickValue += 1;
                 _resourcesManager.RemoveInStock("Meat", _upgradePrice);
+                
                 _upgradePrice *= 2;
+                _upgradePriceText.text = _upgradePrice.ToString() + " Meat";
             }
         }
 

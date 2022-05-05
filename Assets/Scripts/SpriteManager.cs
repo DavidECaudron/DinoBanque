@@ -64,7 +64,10 @@ namespace Scripts
                 GameObject temp = Instantiate(_eggSprite, new Vector3(randX, randY, 0.0f), Quaternion.identity, transform);
                 temp.GetComponent<Image>().color = Color.white;
 
-                Destroy(temp, 5.0f);
+                if (temp != null)
+                {
+                    Destroy(temp, 5.0f);
+                }
             }
         }
 

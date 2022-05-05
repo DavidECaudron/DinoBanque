@@ -40,7 +40,7 @@ namespace Scripts
             {
                 if (item.gameObject.name == resource)
                 {
-                    item.text = _resourcesManager.ResourcesStock[resource].ToString();
+                    item.text = _resourcesManager.ResourcesStock[resource].ToString() + " " + resource;
                 }
             }
         }

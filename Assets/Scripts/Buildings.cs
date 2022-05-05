@@ -10,9 +10,11 @@ namespace Scripts
 
         [SerializeField]
         protected ResourcesManager _resourcesManager;
-
         [SerializeField]
         protected Text _buildingLabel;
+        [SerializeField]
+        protected Text _buildingPriceText;
+
 
         #endregion
 
