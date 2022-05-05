@@ -49,13 +49,14 @@ namespace Scripts
         }
 
         #endregion
+
         #region Utils
 
         private IEnumerator EggCoroutine()
         {
             while (true)
             {
-                float randomSpawn = Random.Range(20.0f, 20.0f);
+                float randomSpawn = Random.Range(60.0f, 300.0f);
                 yield return new WaitForSeconds(randomSpawn);
 
                 float randX = Random.Range(25.0f, 300.0f);
