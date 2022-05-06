@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +8,7 @@ namespace Scripts
     {
         #region Public
 
-        [SerializeField]
-        private ResourcesManager _resourcesManager;
+        [SerializeField] private ResourcesManager _resourcesManager;
 
         #endregion
 

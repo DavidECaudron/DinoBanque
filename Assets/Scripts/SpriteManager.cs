@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Scripts
 {
@@ -9,11 +8,8 @@ namespace Scripts
     {
         #region Public
 
-        [SerializeField]
-        private List<GameObject> _listSprite = new List<GameObject>();
-
-        [SerializeField]
-        private GameObject _eggSprite;
+        [SerializeField] private List<GameObject> _listSprite = new List<GameObject>();
+        [SerializeField] private GameObject _eggSprite;
 
         #endregion
 
@@ -38,12 +34,12 @@ namespace Scripts
         {
             _randomGen = Random.Range(0, _listSprite.Count);
 
-            GameObject temp = Instantiate(_listSprite[_randomGen], Input.mousePosition, Quaternion.identity, transform);
+            GameObject temp = Instantiate(_listSprite[_randomGen], Input.mousePosition + new Vector3(0.0f, 50.0f, 0.0f), Quaternion.identity, transform);
 
             Destroy(temp, 10.0f);
 
             float randX = Random.Range(-360.0f, 360.0f);
-            float randY = Random.Range(-360.0f, 360.0f);
+            float randY = Random.Range(360.0f, 720.0f);
 
             temp.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(randX, randY), ForceMode2D.Impulse);
         }

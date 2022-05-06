@@ -8,13 +8,9 @@ namespace Scripts
     {
         #region Public
 
-        [SerializeField]
-        protected ResourcesManager _resourcesManager;
-        [SerializeField]
-        protected Text _buildingLabel;
-        [SerializeField]
-        protected Text _buildingPriceText;
-
+        [SerializeField] protected ResourcesManager _resourcesManager;
+        [SerializeField] protected Text _buildingLabel;
+        [SerializeField] protected Text _buildingPriceText;
 
         #endregion
 
